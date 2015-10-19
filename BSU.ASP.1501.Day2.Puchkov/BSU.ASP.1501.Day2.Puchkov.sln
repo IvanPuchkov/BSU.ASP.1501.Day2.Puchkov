@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task1", "Task1", "{51E47106-318D-48DA-B7CC-F390200A278F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1", "Task1\Task1.csproj", "{BA58F30A-BF0A-47B2-B411-3162BAD3FDBF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task2", "Task2", "{29ACA438-59C4-4DE7-B849-C3E929387573}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task3", "Task3", "{4CBFACF3-CDB6-4538-BC75-F237D03129D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task4", "Task4", "{BD69D9F2-F5A8-4954-82E6-ACE18125CDEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1.Tests", "Task1.Tests\Task1.Tests.csproj", "{CEC8E0DB-DA09-4FC7-BD7B-0E282A0358D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexFormatProvider", "HexFormatProvider\HexFormatProvider.csproj", "{22535900-3D21-4B28-93EB-CA489DD68F8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexFormatProvider.Tests", "HexForatProvider.Tests\HexFormatProvider.Tests.csproj", "{3543B2CC-C97C-496C-9DB8-86A3A0CC5895}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuclideanAlgorithm", "EuclideanAlgorithm\EuclideanAlgorithm.csproj", "{89337903-0DA0-4AD1-B5EF-4559BAB5C068}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuclideanAlgorithm.Tests", "EuclideanAlgorithm.Tests\EuclideanAlgorithm.Tests.csproj", "{2AE3C597-D539-463C-AD82-2CE9561C719C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA58F30A-BF0A-47B2-B411-3162BAD3FDBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA58F30A-BF0A-47B2-B411-3162BAD3FDBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA58F30A-BF0A-47B2-B411-3162BAD3FDBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA58F30A-BF0A-47B2-B411-3162BAD3FDBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEC8E0DB-DA09-4FC7-BD7B-0E282A0358D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEC8E0DB-DA09-4FC7-BD7B-0E282A0358D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEC8E0DB-DA09-4FC7-BD7B-0E282A0358D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEC8E0DB-DA09-4FC7-BD7B-0E282A0358D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22535900-3D21-4B28-93EB-CA489DD68F8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22535900-3D21-4B28-93EB-CA489DD68F8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22535900-3D21-4B28-93EB-CA489DD68F8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22535900-3D21-4B28-93EB-CA489DD68F8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3543B2CC-C97C-496C-9DB8-86A3A0CC5895}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3543B2CC-C97C-496C-9DB8-86A3A0CC5895}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3543B2CC-C97C-496C-9DB8-86A3A0CC5895}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3543B2CC-C97C-496C-9DB8-86A3A0CC5895}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89337903-0DA0-4AD1-B5EF-4559BAB5C068}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89337903-0DA0-4AD1-B5EF-4559BAB5C068}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89337903-0DA0-4AD1-B5EF-4559BAB5C068}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89337903-0DA0-4AD1-B5EF-4559BAB5C068}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AE3C597-D539-463C-AD82-2CE9561C719C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AE3C597-D539-463C-AD82-2CE9561C719C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AE3C597-D539-463C-AD82-2CE9561C719C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AE3C597-D539-463C-AD82-2CE9561C719C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BA58F30A-BF0A-47B2-B411-3162BAD3FDBF} = {51E47106-318D-48DA-B7CC-F390200A278F}
+		{CEC8E0DB-DA09-4FC7-BD7B-0E282A0358D5} = {51E47106-318D-48DA-B7CC-F390200A278F}
+		{22535900-3D21-4B28-93EB-CA489DD68F8E} = {4CBFACF3-CDB6-4538-BC75-F237D03129D6}
+		{3543B2CC-C97C-496C-9DB8-86A3A0CC5895} = {4CBFACF3-CDB6-4538-BC75-F237D03129D6}
+		{89337903-0DA0-4AD1-B5EF-4559BAB5C068} = {BD69D9F2-F5A8-4954-82E6-ACE18125CDEC}
+		{2AE3C597-D539-463C-AD82-2CE9561C719C} = {BD69D9F2-F5A8-4954-82E6-ACE18125CDEC}
+	EndGlobalSection
+EndGlobal
