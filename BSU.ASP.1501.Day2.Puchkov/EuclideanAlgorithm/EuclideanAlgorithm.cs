@@ -1,116 +1,150 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 
 namespace EuclideanAlgorithm
 {
     public static class EuclideanAlgorithm
     {
-        public static int CalculateGcd(out long time, int a, int b)
+        private static int CalculateGeneralGcd(int a, int b)
         {
-            time = 0;
-            long curtime = DateTime.Now.Ticks;
             if ((a == 0) || (b == 0))
             {
                 return Math.Max(a, b);
             }
-            int output;
-            if (a > b)
+            int output =  a > b? CalculateGeneralGcd(a % b, b): CalculateGeneralGcd(a, b % a);
+            return output;
+        }
+
+        public static int CalculateGcd(int a, int b)
+        {
+            if ((a == 0) || (b == 0))
+                throw new ArgumentException("None of numbers should be equal to zero");
+            return CalculateGeneralGcd(a, b);
+        }
+
+        public static int CalculateGcd(int a, int b, int c)
+        {
+            return CalculateGeneralGcd(a, CalculateGeneralGcd(b, c));
+        }
+
+        public static int CalculateGcd(params int[] numbers)
+        {
+            if (numbers == null)
+                throw new ArgumentNullException();
+            if (numbers.Count() < 2)
+                throw new ArgumentException();
+            int output = numbers[0];
+            for (int i = 1; i < numbers.Length; i++)
             {
-                output = CalculateGcd(out time,a % b, b );
-                time = curtime - DateTime.Now.Ticks;
-                return output;
+                output = CalculateGeneralGcd(output, numbers[i]);
             }
-            else
-            {
-                output = CalculateGcd(out time,a, b%a );
-                time = curtime - DateTime.Now.Ticks;
-                return output;
-            }
+            return output;
+        }
+
+        public static int CalculateGcd(out long time, int a, int b)
+        {
+
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            int output = CalculateGcd(a, b);
+            sw.Stop();
+            time = sw.ElapsedMilliseconds;
+            return output;
         }
 
         public static int CalculateGcd(out long time,int a, int b, int c)
         {
-            long curtime = DateTime.Now.Ticks;
-            int output = CalculateGcd(out time,a, CalculateGcd(out time,b,c));
-            time = DateTime.Now.Ticks - curtime;
+            Stopwatch sw=new Stopwatch();
+            sw.Start();
+            int output = CalculateGcd(a, b,c);
+            sw.Stop();
+            time =sw.ElapsedMilliseconds;
             return output;
         }
 
         public static int CalculateGcd(out long time,params int[] numbers)
         {
             
-            if (numbers==null)
-                throw new ArgumentNullException();
-            if (numbers.Count()<2)
-                throw new ArgumentException();
-            long curtime = DateTime.Now.Ticks;
-            int output = numbers[0];
-            for (int i = 1; i < numbers.Length; i++)
-            {
-                output = CalculateGcd(out time, output, numbers[i]);
-            }
-            time = DateTime.Now.Ticks - curtime;
+            Stopwatch sw=new Stopwatch();
+            sw.Start();
+            int output = CalculateGcd(numbers);
+            sw.Stop();
+            time = sw.ElapsedMilliseconds;
             return output;
         }
 
-        public static int CalculateSteinGcd(out long time, int a, int b)
+        public static int CalculateGeneralSteinGcd(int a, int b)
         {
-            time = 0;
-            int output;
-            long curtime = DateTime.Now.Ticks;
             if ((a == 0) && (b == 0))
                 return 0;
             if ((a == 0) || (b == 0))
                 return Math.Max(a, b);
             if ((a%2 == 0) && (b%2 == 0))
-            {
-                output = CalculateSteinGcd(out time, a/2, b/2)*2;
-                time = DateTime.Now.Ticks - time;
-                return output;
-            }
+                return CalculateGeneralSteinGcd(a/2, b/2)*2;
             if (a%2 == 0)
-            {
-                output = CalculateSteinGcd(out time, a / 2, b);
-                time = DateTime.Now.Ticks - time;
-                return output;
-            }
+                return CalculateGeneralSteinGcd(a / 2, b);
             if (b%2 == 0)
-            {
-                output = CalculateSteinGcd(out time, a, b/2);
-                time = DateTime.Now.Ticks - time;
-                return output;
-            }
+                return CalculateGeneralSteinGcd( a, b/2);
             int greatest = Math.Max(a, b);
             int lowest = Math.Min(a, b);
-            output = CalculateSteinGcd(out time, (greatest - lowest)/2, lowest);
-            time = curtime - DateTime.Now.Ticks;
-            return output;
+            return CalculateGeneralSteinGcd((greatest - lowest)/2, lowest);
         }
 
-        public static int CalculateSteinGcd(out long time, int a, int b, int c)
+        public static int CalculateSteinGcd(int a, int b)
         {
-            time = 0;
-            long curtime = DateTime.Now.Ticks;
-            int output = CalculateSteinGcd(out time, a, CalculateSteinGcd(out time,b, c));
-            time = DateTime.Now.Ticks - curtime;
-            return output;
+            if ((a == 0) || (b == 0))
+                throw new ArgumentException("None of numbers should be equal to zero");
+            return CalculateGeneralGcd(a,b);
         }
 
-        public static int CalculateSteinGcd(out long time, params int[] numbers)
+        public static int CalculateSteinGcd(int a, int b, int c)
         {
-            time = 0;
+            return CalculateSteinGcd(a, CalculateGeneralSteinGcd(b, c));
+        }
+
+        public static int CalculateSteinGcd(params int[] numbers)
+        {
             if (numbers==null)
                 throw new ArgumentNullException();
             if (numbers.Length<2)
                 throw new ArgumentException();
-            long curtime = DateTime.Now.Ticks;
-            int output = numbers[0];
+            int result = numbers[0];
             for (int i = 1; i < numbers.Length; i++)
             {
-                output = CalculateSteinGcd(out time, output, numbers[i]);
+                result = CalculateSteinGcd(result, numbers[i]);
             }
-            time = DateTime.Now.Ticks - curtime;
-            return output;
+            return result;
+        }
+    
+
+        public static int CalculateSteinGcd(out long time,int a, int b)
+        {
+            Stopwatch sw=new Stopwatch();
+            int result = CalculateGcd(a, b);
+            sw.Stop();
+            time = sw.ElapsedMilliseconds;
+            return result;
+        }
+
+        public static int CalculateSteinGcd(out long time,int a, int b, int c)
+        {
+            Stopwatch sw=new Stopwatch();
+            sw.Start();
+            int result = CalculateSteinGcd(a,b,c);
+            sw.Stop();
+            time = sw.ElapsedMilliseconds;
+            return result;
+        }
+
+        public static int CalculateSteinGcd(out long time,params int[] numbers)
+        {
+            Stopwatch sw=new Stopwatch();
+            sw.Start();
+            int result = CalculateSteinGcd(numbers);
+            sw.Stop();
+            time = sw.ElapsedMilliseconds;
+            return result;
         }
     }
 }
