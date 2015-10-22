@@ -14,11 +14,8 @@ namespace HexFormatProvider
         {
             if (typeFormatter == typeof (ICustomFormatter))
                 return this;
-            else
-            {
-
-                return null;
-            }
+            return null;
+            
         }
 
         
@@ -31,9 +28,7 @@ namespace HexFormatProvider
 
 
             if (((format != "H") && (format != "h") || (arg.GetType() != typeof (int))))
-                //return "";
             {
-                //if (arg is IFormattable)
                 IFormattable iFormattable= arg as IFormattable;
                 if (iFormattable != null)
                     return iFormattable.ToString(format, CultureInfo.CurrentCulture);
